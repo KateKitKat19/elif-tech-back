@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
 const { handleError } = require("../helpers");
 const Joi = require("joi");
+Joi.objectId = require('joi-objectid')(Joi)
 
 const orderSchema = new Schema(
   {
