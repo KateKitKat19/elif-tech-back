@@ -49,6 +49,7 @@ const orderSchema = new Schema(
 orderSchema.post("save", handleError);
 
 const itemSchema = Joi.object({
+  _id: Joi.objectId(),
   title: Joi.string().required(),
   shop: Joi.string().required(),
   image: Joi.string(),
