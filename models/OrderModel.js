@@ -48,6 +48,13 @@ const orderSchema = new Schema(
 
 orderSchema.post("save", handleError);
 
+const itemSchema = Joi.object({
+  title: Joi.string().required(),
+  shop: Joi.string().required(),
+  image: Joi.string(),
+  price: Joi.number().required(),
+  quantity: Joi.number().required(),
+});
 
 const addOrderSchema = Joi.object({
   name: Joi.string()
@@ -134,7 +141,7 @@ const addOrderSchema = Joi.object({
       });
       return errors;
     }),
-  items: Joi.string().required(),
+    items: Joi.string().required(),
 });
 
 const Orders = model("orders", orderSchema);
