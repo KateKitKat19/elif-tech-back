@@ -141,7 +141,7 @@ const addOrderSchema = Joi.object({
       });
       return errors;
     }),
-    items: Joi.string().required(),
+  items: Joi.array().items(itemSchema),
 });
 
 const Orders = model("orders", orderSchema);
